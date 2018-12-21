@@ -15,7 +15,7 @@ class OTMLoginViewController: UIViewController {
     }
 
     @IBAction func Login() {
-        
+        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
     }
     
 }
