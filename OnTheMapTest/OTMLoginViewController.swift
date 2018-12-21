@@ -29,6 +29,8 @@ class OTMLoginViewController: UIViewController {
             // Add check for valid status code
             // Add check to ensure result receive
             let range = Range(5..<data!.count)
+            let result = data?.subdata(in: range)
+            print(result)
         }
         task.resume()
     }
