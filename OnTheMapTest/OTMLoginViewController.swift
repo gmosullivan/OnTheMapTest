@@ -10,8 +10,7 @@ import UIKit
 
 class OTMLoginViewController: UIViewController {
 
-    let method = "https://onthemap-api.udacity.com/v1/session"
-    var request = URLRequest(url: URL(string: method))
+    var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
     let session = URLSession.shared
     let task = session.dataTask(with: request) {data, response, error in
         
