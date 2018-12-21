@@ -9,13 +9,14 @@
 import UIKit
 
 class OTMLoginViewController: UIViewController {
-
-    var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
-    let session = URLSession.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    @IBAction func Login() {
+        
+    }
+    
 }
 
