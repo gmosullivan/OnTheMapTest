@@ -30,7 +30,7 @@ class OTMLoginViewController: UIViewController {
             // Add check to ensure result receive
             let range = Range(5..<data!.count)
             let result = data?.subdata(in: range)
-            print(result)
+            print(String(data: result!, encoding: .utf8)!)
         }
         task.resume()
     }
