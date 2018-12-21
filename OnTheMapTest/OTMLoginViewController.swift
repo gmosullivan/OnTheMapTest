@@ -22,7 +22,10 @@ class OTMLoginViewController: UIViewController {
         request.httpBody = "{\"udacity\": {\"username\": \"gareth.osullivan@icloud.com\", \"password\": \"2469WdWa\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            
+            guard error == nil else {
+                //handle error
+                return
+            }
         }
         task.resume()
     }
