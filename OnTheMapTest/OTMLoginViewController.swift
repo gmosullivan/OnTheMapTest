@@ -21,6 +21,10 @@ class OTMLoginViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = "{\"udacity\": {\"username\": \"gareth.osullivan@icloud.com\", \"password\": \"2469WdWa\"}}".data(using: .utf8)
         let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            
+        }
+        task.resume()
     }
     
 }
