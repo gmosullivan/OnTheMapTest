@@ -34,6 +34,14 @@ class OTMLoginViewController: UIViewController {
             let range = Range(5..<data!.count)
             let result = data?.subdata(in: range)
             print(String(data: result!, encoding: .utf8)!)
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                //Display error
+                return
+            }
+            print(parsedResult)
         }
         task.resume()
         performSegue(withIdentifier: "Login", sender: self)
