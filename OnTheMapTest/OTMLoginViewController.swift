@@ -22,8 +22,7 @@ class OTMLoginViewController: UIViewController {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"udacity\": {\"username\": \"gareth.osullivan@icloud.com\", \"password\": \"2469WdWa\"}}".data(using: .utf8)
-        print(String(data: request.httpBody!, encoding: .utf8)!)
+        request.httpBody = "{\"udacity\": {\"username\": \"\(emailTextField.text!)\", \"password\": \"\(passwordTextField.text!)\"}}".data(using: .utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
