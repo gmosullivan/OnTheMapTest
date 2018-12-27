@@ -18,9 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVC-uB-tBd">
-                                <rect key="frame" x="163" y="318" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVC-uB-tBd">
+                                <rect key="frame" x="30" y="299" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="AlK-Jx-Pos"/>
+                                    <constraint firstAttribute="height" constant="30" id="TZg-UI-sMr"/>
+                                </constraints>
                                 <state key="normal" title="LOG IN"/>
                                 <connections>
                                     <action selector="Login" destination="BYZ-38-t0r" eventType="touchUpInside" id="35R-NE-Ywm"/>
@@ -69,7 +72,9 @@
                             <constraint firstItem="dTT-L0-Xbi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-140" id="aVm-ww-LRa"/>
                             <constraint firstItem="g9Z-zY-cDQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="hZf-l0-CQW"/>
                             <constraint firstItem="xi9-td-FAe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ob6-9y-mdO"/>
+                            <constraint firstItem="kVC-uB-tBd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="qKl-pw-J4b"/>
                             <constraint firstItem="xi9-td-FAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="tWC-LP-vcm"/>
+                            <constraint firstItem="kVC-uB-tBd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydZ-wz-fZp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
