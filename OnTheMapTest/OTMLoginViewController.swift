@@ -41,7 +41,11 @@ class OTMLoginViewController: UIViewController {
                 //Display error
                 return
             }
-            print(parsedResult)
+            guard let accountInfo = parsedResult["account"] as? [String:AnyObject] else {
+                print("No can do")
+                return
+            }
+            print(accountInfo)
         }
         task.resume()
         performSegue(withIdentifier: "Login", sender: self)
