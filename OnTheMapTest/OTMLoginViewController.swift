@@ -48,9 +48,14 @@ class OTMLoginViewController: UIViewController {
                 print("No can do")
                 return
             }
+            if isRegistered {
+                self.performSegue(withIdentifier: "Login", sender: self)
+            } else {
+                //Handle error
+                return
+            }
         }
         task.resume()
-        performSegue(withIdentifier: "Login", sender: self)
     }
     
 }
