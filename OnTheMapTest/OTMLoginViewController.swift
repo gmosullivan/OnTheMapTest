@@ -49,7 +49,9 @@ class OTMLoginViewController: UIViewController {
                 return
             }
             if isRegistered {
-                self.performSegue(withIdentifier: "Login", sender: self)
+                performUIUpdatesOnMain {
+                    self.performSegue(withIdentifier: "Login", sender: self)
+                }
             } else {
                 //Handle error
                 return
