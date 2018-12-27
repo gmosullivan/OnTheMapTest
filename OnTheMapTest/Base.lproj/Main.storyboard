@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9Z-zY-cDQ">
-                                <rect key="frame" x="30" y="234" width="260" height="30"/>
+                                <rect key="frame" x="30" y="259" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="EtK-A4-2Kb"/>
                                     <constraint firstAttribute="height" constant="30" id="bDd-3N-RKb"/>
@@ -45,7 +45,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xi9-td-FAe">
-                                <rect key="frame" x="30" y="199" width="260" height="30"/>
+                                <rect key="frame" x="30" y="219" width="260" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Yx-2J-IXi"/>
                                     <constraint firstAttribute="width" constant="260" id="hR8-cA-fZ4"/>
@@ -54,13 +54,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-L0-Xbi">
+                                <rect key="frame" x="120" y="104" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="UQt-ZQ-yeQ"/>
+                                    <constraint firstAttribute="width" constant="80" id="tm8-R0-hxk"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="g9Z-zY-cDQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ACj-Xg-0t2"/>
-                            <constraint firstItem="g9Z-zY-cDQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-35" id="hZf-l0-CQW"/>
+                            <constraint firstItem="dTT-L0-Xbi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NOY-E2-xGX"/>
+                            <constraint firstItem="dTT-L0-Xbi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-140" id="aVm-ww-LRa"/>
+                            <constraint firstItem="g9Z-zY-cDQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="hZf-l0-CQW"/>
                             <constraint firstItem="xi9-td-FAe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ob6-9y-mdO"/>
-                            <constraint firstItem="xi9-td-FAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-70" id="tWC-LP-vcm"/>
+                            <constraint firstItem="xi9-td-FAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="tWC-LP-vcm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -186,4 +195,7 @@
             <point key="canvasLocation" x="-244" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-u" width="62" height="62"/>
+    </resources>
 </document>
