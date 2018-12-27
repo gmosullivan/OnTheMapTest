@@ -19,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVC-uB-tBd">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <rect key="frame" x="163" y="318" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="LOG IN"/>
                                 <connections>
                                     <action selector="Login" destination="BYZ-38-t0r" eventType="touchUpInside" id="35R-NE-Ywm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1D-HU-Zcf">
-                                <rect key="frame" x="164" y="377" width="46" height="30"/>
+                                <rect key="frame" x="160" y="377" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <segue destination="lQp-bI-vpK" kind="push" id="pO5-qk-RvY"/>
                                 </connections>
