@@ -33,7 +33,6 @@ class OTMLoginViewController: UIViewController {
             // Add check to ensure result receive
             let range = Range(5..<data!.count)
             let result = data?.subdata(in: range)
-            print(String(data: result!, encoding: .utf8)!)
             let parsedResult: [String:AnyObject]!
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
@@ -42,10 +41,13 @@ class OTMLoginViewController: UIViewController {
                 return
             }
             guard let accountInfo = parsedResult["account"] as? [String:AnyObject] else {
+                //Handle error
+                return
+            }
+            guard let isRegistered = accountInfo["registered"] as? Bool else {
                 print("No can do")
                 return
             }
-            print(accountInfo)
         }
         task.resume()
         performSegue(withIdentifier: "Login", sender: self)
