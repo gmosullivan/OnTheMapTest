@@ -36,6 +36,7 @@ class OTMLoginViewController: UIViewController {
             print(String(data: result!, encoding: .utf8)!)
         }
         task.resume()
+        performSegue(withIdentifier: "Login", sender: self)
     }
     
 }
