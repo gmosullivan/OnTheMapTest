@@ -18,6 +18,11 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
 
     @IBAction func Login() {
         if emailTextField.text == "" || passwordTextField.text == "" {
