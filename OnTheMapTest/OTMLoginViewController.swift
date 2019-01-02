@@ -36,7 +36,15 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"udacity\": {\"username\": \"\(emailTextField.text!)\", \"password\": \"\(passwordTextField.text!)\"}}".data(using: .utf8)
+        let body  = ["udacity": [
+            "username": emailTextField.text!,
+            "password": passwordTextField.text!
+            ]]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch {
+            displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+        }
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
