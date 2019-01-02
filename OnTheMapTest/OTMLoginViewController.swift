@@ -66,12 +66,18 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
-    //MARK: - Keyboard Notification Fuctions
+    //MARK: - Keyboard Notification Functions
     
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if emailTextField.isEditing || passwordTextField.isEditing {
+            view.frame.origin.y = -1 * getKeyboardHeight(notification)
+        }
     }
     
     //MARK: - Text Field Delegate Functions
