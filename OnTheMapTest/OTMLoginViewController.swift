@@ -18,6 +18,10 @@ class OTMLoginViewController: UIViewController {
     }
 
     @IBAction func Login() {
+        if emailTextField.text == "" || passwordTextField.text == "" {
+            //Display alert
+            return
+        }
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
