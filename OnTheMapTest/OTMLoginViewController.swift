@@ -66,6 +66,14 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
+    //MARK: - Keyboard Notification Fuctions
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
     //MARK: - Text Field Delegate Functions
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
