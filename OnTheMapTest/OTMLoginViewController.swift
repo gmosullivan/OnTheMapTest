@@ -42,7 +42,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                self.displayError(error: error!.localizedDescription)
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
             // Add check for valid status code
@@ -53,15 +53,15 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
             } catch {
-                self.displayError(error: "Unable to parse data from result")
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
             guard let accountInfo = parsedResult["account"] as? [String:AnyObject] else {
-                self.displayError(error: "Account info not found in parsed result")
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
             guard let isRegistered = accountInfo["registered"] as? Bool else {
-                self.displayError(error: "Unable to find registration data in account info")
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
             if isRegistered {
@@ -69,7 +69,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "Login", sender: self)
                 }
             } else {
-                self.displayError(error: "User is not registered")
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
         }
@@ -115,8 +115,13 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Error Functions
     
-    func displayError(error: String) {
+    func displayError(error: String, _ description: String) {
         print(error)
+        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }
