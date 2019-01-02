@@ -42,7 +42,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                //handle error
+                self.displayError(error: error!.localizedDescription)
                 return
             }
             // Add check for valid status code
@@ -53,15 +53,15 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
             } catch {
-                //Display error
+                self.displayError(error: "Unable to parse data from result")
                 return
             }
             guard let accountInfo = parsedResult["account"] as? [String:AnyObject] else {
-                //Handle error
+                self.displayError(error: "Account info not found in parsed result")
                 return
             }
             guard let isRegistered = accountInfo["registered"] as? Bool else {
-                print("No can do")
+                self.displayError(error: "Unable to find registration data in account info")
                 return
             }
             if isRegistered {
@@ -69,7 +69,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "Login", sender: self)
                 }
             } else {
-                //Handle error
+                self.displayError(error: "User is not registered")
                 return
             }
         }
