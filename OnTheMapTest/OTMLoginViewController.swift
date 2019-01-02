@@ -31,7 +31,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func Login() {
         if emailTextField.text == "" || passwordTextField.text == "" {
-            //Display alert
+            displayError(error: "Missing email and/or password", "Please enter your email address and password.")
             return
         }
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
@@ -45,8 +45,20 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            // Add check for valid status code
-            // Add check to ensure result receive
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 599 else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            if statusCode >= 300 && statusCode <= 399 {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            } else if statusCode >= 400 && statusCode <= 499 {
+                self.displayError(error: "Invalid Credentials", "Please check your email and password are correct and try again")
+                return
+            } else if statusCode >= 500 {
+                self.displayError(error: "Unable to Connect", "Please check your network connection and try again")
+                return
+            }
             let range = Range(5..<data!.count)
             let result = data?.subdata(in: range)
             let parsedResult: [String:AnyObject]!
@@ -64,13 +76,13 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            if isRegistered {
-                performUIUpdatesOnMain {
-                    self.performSegue(withIdentifier: "Login", sender: self)
-                }
-            } else {
-                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
-                return
+                if isRegistered {
+                    performUIUpdatesOnMain {
+                        self.performSegue(withIdentifier: "Login", sender: self)
+                    }
+                } else {
+                    self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                    return
             }
         }
         task.resume()
