@@ -23,6 +23,11 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeToKeyboardNotifications()    
+    }
 
     @IBAction func Login() {
         if emailTextField.text == "" || passwordTextField.text == "" {
