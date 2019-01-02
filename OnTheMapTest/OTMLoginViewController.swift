@@ -21,12 +21,10 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeToKeyboardNotifications()
     }
 
     @IBAction func Login() {
@@ -86,36 +84,6 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         task.resume()
-    }
-    
-    //MARK: - Keyboard Notification Functions
-    
-    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if emailTextField.isEditing || passwordTextField.isEditing {
-            view.frame.origin.y = -1 * getKeyboardHeight(notification)
-        }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-        view.frame.origin.y = 0
-    }
-    
-    //MARK: - Subscription Functions
-    
-    func subscribeToKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
-    }
-    
-    func unsubscribeToKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
     //MARK: - Text Field Delegate Functions
