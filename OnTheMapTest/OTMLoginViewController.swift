@@ -80,6 +80,10 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @objc func keyboardWillHide(_ notification: Notification) {
+        view.frame.origin.y = 0
+    }
+    
     //MARK: - Text Field Delegate Functions
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
