@@ -8,13 +8,15 @@
 
 import UIKit
 
-class OTMLoginViewController: UIViewController {
+class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     @IBAction func Login() {
