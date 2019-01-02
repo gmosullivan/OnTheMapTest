@@ -26,7 +26,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeToKeyboardNotifications()    
+        unsubscribeToKeyboardNotifications()
     }
 
     @IBAction func Login() {
@@ -111,6 +111,12 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    //MARK: - Error Functions
+    
+    func displayError(error: String) {
+        print(error)
     }
     
 }
