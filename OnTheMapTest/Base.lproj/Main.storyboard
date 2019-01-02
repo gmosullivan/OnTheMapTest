@@ -114,7 +114,7 @@
         <!--Item 2-->
         <scene sceneID="gub-EJ-1nY">
             <objects>
-                <viewController id="50r-Nc-riM" customClass="OTMTableViewController" sceneMemberID="viewController">
+                <viewController id="50r-Nc-riM" customClass="OTMMapViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eXG-5R-Cx4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,7 +172,7 @@
         <!--Item 1-->
         <scene sceneID="hXu-8f-eHF">
             <objects>
-                <viewController id="bZr-0T-aAS" customClass="OTMMapViewController" sceneMemberID="viewController">
+                <viewController id="bZr-0T-aAS" customClass="OTMMapViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="47D-9c-w4L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -12,6 +12,7 @@ class OTMMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getStudentLocations()
     }
     
     //GET Student Locations
@@ -22,7 +23,7 @@ class OTMMapViewController: UIViewController {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            
+            print(String(data: data!, encoding: .utf8)!)
         }
         task.resume()
     }
