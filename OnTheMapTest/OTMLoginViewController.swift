@@ -66,5 +66,12 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
+    //MARK: - Text Field Delegate Functions
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
