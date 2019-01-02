@@ -84,6 +84,13 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         view.frame.origin.y = 0
     }
     
+    //MARK: - Subscription Functions
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
     //MARK: - Text Field Delegate Functions
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
