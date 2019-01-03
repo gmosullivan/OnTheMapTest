@@ -22,11 +22,23 @@ struct StudentLocation {
     // construct a StudentLocation from a dictionary
     init(dictionary: [String:AnyObject]) {
         studentUniqueKey = dictionary["uniqueKey"] as! String
-        studentFirstName = dictionary["firstName"] as! String
-        studentLastName = dictionary["lastName"] as! String
+        if dictionary["firstName"] != nil {
+            studentFirstName = dictionary["firstName"] as! String
+        } else {
+            studentFirstName = ""
+        }
+        if dictionary["lastName"] != nil {
+            studentLastName = dictionary["lastName"] as! String
+        } else {
+            studentLastName = ""
+        }
         studentLatitude = dictionary["latitude"] as! Float
         studentLongitude = dictionary["longitude"] as! Float
-        studentMapString = dictionary["mapString"] as! String
+        if dictionary["mapString"] != nil {
+            studentMapString = dictionary["mapString"] as! String
+        } else {
+            studentMapString = ""
+        }
         studentURL = dictionary["mediaURL"] as! String
     }
     
