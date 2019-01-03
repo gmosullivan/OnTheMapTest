@@ -38,7 +38,12 @@ class OTMMapViewController: UIViewController {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            print(parsedResult)
+            guard let results = parsedResult["results"] as? [[String:AnyObject]] else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            let locations = StudentLocation.studentLoactionsFrom(results: results)
+            print(locations)
         }
         task.resume()
     }
