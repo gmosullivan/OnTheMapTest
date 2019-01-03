@@ -9,7 +9,7 @@
 import UIKit
 
 class OTMMapViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocations()
