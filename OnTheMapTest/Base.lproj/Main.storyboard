@@ -125,7 +125,9 @@
                                     <constraint firstAttribute="height" constant="44" id="tek-bz-JHB"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="On The Map" id="Jev-eD-ifI"/>
+                                    <navigationItem title="On The Map" id="Jev-eD-ifI">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0cu-cf-55H"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -199,7 +201,9 @@
                                     <constraint firstAttribute="height" constant="44" id="b2R-e1-m6T"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="On The Map" id="7XJ-zF-S5q"/>
+                                    <navigationItem title="On The Map" id="7XJ-zF-S5q">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ahr-aC-8Q5"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
