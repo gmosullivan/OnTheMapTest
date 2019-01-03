@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class OTMWebViewController: UIViewController {
+class OTMWebViewController: UIViewController,  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
