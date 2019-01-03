@@ -9,10 +9,13 @@
 import UIKit
 import WebKit
 
-class OTMWebViewController: UIViewController,  {
+class OTMWebViewController: UIViewController, WKUIDelegate {
 
+    var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.uiDelegate = self
     }
 
 }
