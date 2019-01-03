@@ -22,6 +22,9 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let udacityURL = URL(string: "https://auth.udacity.com/sign-up")
+        let request = URLRequest(url: udacityURL!)
+        webView.load(request)
     }
 
 }
