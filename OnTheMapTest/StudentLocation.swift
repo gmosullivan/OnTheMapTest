@@ -6,4 +6,15 @@
 //  Copyright © 2019 Locust Redemption. All rights reserved.
 //
 
-import Foundation
+struct StudentLocation {
+    
+    //Constants
+    let studentUniqueKey: Int
+    let studentFirstName: String
+    let studentLastName: String
+    let studentLatitude: Float
+    let studentLongitude: Float
+    let studentMapString: String
+    let studentURL: String
+    
+}
