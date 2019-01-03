@@ -30,4 +30,11 @@ struct StudentLocation {
         studentURL = dictionary["mediaURL"] as! String
     }
     
+    static func studentLoactionsFrom(results: [[String:AnyObject]]) -> [StudentLocation] {
+        var studentLocations = [StudentLocation]()
+        for result in results {
+            studentLocations.append(StudentLocation(dictionary: result))
+        }
+        return studentLocations
+    }
 }
