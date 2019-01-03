@@ -13,6 +13,10 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
 
     var webView: WKWebView!
     
+    override func loadView() {
+        <#code#>
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.uiDelegate = self
