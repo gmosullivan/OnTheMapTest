@@ -42,5 +42,16 @@ class OTMMapViewController: UIViewController {
         }
         task.resume()
     }
+    
+    //MARK: - Error Functions
+    
+    func displayError(error: String, _ description: String) {
+        print(error)
+        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
 }
