@@ -16,7 +16,7 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocations()
-        
+        var annotations = [MKAnnotation]()
     }
     
     //GET Student Locations
