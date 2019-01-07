@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
-class OTMMapViewController: UIViewController {
+class OTMMapViewController: UIViewController, MKMapViewDelegate {
+    
+    //MARK: - Variables
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocations()
+        
     }
     
     //GET Student Locations
@@ -43,7 +47,6 @@ class OTMMapViewController: UIViewController {
                 return
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
-            print(locations)
         }
         task.resume()
     }
