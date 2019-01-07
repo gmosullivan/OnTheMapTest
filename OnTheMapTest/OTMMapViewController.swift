@@ -14,6 +14,10 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
     //MARK: - Variables
     var annotations = [MKPointAnnotation]()
     
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocations()
