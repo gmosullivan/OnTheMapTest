@@ -64,7 +64,7 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 annotation.subtitle = url
                 self.annotations.append(annotation)
             }
-            
+            self.mapView.addAnnotations(self.annotations)
         }
         task.resume()
     }
