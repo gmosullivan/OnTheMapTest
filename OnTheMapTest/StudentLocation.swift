@@ -21,7 +21,11 @@ struct StudentLocation {
     
     // construct a StudentLocation from a dictionary
     init(dictionary: [String:AnyObject]) {
-        studentUniqueKey = dictionary["uniqueKey"] as! String
+        if dictionary["uniqueKey"] != nil {
+            studentUniqueKey = dictionary["uniqueKey"] as! String
+        } else {
+            studentUniqueKey = "This is weird"
+        }
         if dictionary["firstName"] != nil {
             studentFirstName = dictionary["firstName"] as! String
         } else {
@@ -32,14 +36,26 @@ struct StudentLocation {
         } else {
             studentLastName = ""
         }
-        studentLatitude = dictionary["latitude"] as! Float
-        studentLongitude = dictionary["longitude"] as! Float
+        if dictionary["latitude"] != nil {
+            studentLatitude = dictionary["latitude"] as! Float
+        } else {
+            studentLatitude = 0.00
+        }
+        if dictionary["longitude"] != nil {
+            studentLongitude = dictionary["longitude"] as! Float
+        } else {
+            studentLongitude = 0.00
+        }
         if dictionary["mapString"] != nil {
             studentMapString = dictionary["mapString"] as! String
         } else {
             studentMapString = ""
         }
-        studentURL = dictionary["mediaURL"] as! String
+        if dictionary["mediaURL"] != nil {
+            studentURL = dictionary["mediaURL"] as! String
+        } else {
+            studentURL = "https://failblog.cheezburger.com/"
+        }
     }
     
     static func studentLoactionsFrom(results: [[String:AnyObject]]) -> [StudentLocation] {
