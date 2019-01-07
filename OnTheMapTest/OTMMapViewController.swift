@@ -12,11 +12,11 @@ import MapKit
 class OTMMapViewController: UIViewController, MKMapViewDelegate {
     
     //MARK: - Variables
+    var annotations = [MKPointAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getStudentLocations()
-        var annotations = [MKAnnotation]()
     }
     
     //GET Student Locations
@@ -47,6 +47,20 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 return
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
+            for location in locations {
+                let lat = CLLocationDegrees(location.studentLatitude)
+                let lon = CLLocationDegrees(location.studentLongitude)
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                let first = location.studentFirstName
+                let last = location.studentLastName
+                let url = location.studentURL
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(first) \(last)"
+                annotation.subtitle = url
+                self.annotations.append(annotation)
+            }
+            
         }
         task.resume()
     }
