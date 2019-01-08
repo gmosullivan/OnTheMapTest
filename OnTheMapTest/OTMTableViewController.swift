@@ -29,9 +29,10 @@ class OTMTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locations", for: indexPath)
-
+        let location = locations[indexPath.row]
         // Configure the cell...
-
+        cell.textLabel?.text = "\(location.studentFirstName) \(location.studentLastName)"
+        cell.detailTextLabel?.text = "\(location.studentMapString)"
         return cell
     }
 
