@@ -13,6 +13,8 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
 
     var webView: WKWebView!
     
+    let url = URL(string: "https://auth.udacity.com/sign-up")
+    
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -22,8 +24,7 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let udacityURL = URL(string: "https://auth.udacity.com/sign-up")
-        let request = URLRequest(url: udacityURL!)
+        let request = URLRequest(url: url!)
         webView.load(request)
     }
 
