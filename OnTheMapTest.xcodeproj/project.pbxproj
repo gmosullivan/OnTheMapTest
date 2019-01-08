@@ -16,6 +16,7 @@
 		7F18057C21E51DA000DD7822 /* OTMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F18057B21E51DA000DD7822 /* OTMTableViewController.swift */; };
 		7FAC72FB21DD5E0900705F24 /* OTMMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC72FA21DD5E0900705F24 /* OTMMapViewController.swift */; };
 		7FAC72FD21DDE9AE00705F24 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC72FC21DDE9AE00705F24 /* StudentLocation.swift */; };
+		7FAC72FF21DE8A4B00705F24 /* OTMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7F18057B21E51DA000DD7822 /* OTMTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMTableViewController.swift; sourceTree = "<group>"; };
 		7FAC72FA21DD5E0900705F24 /* OTMMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMMapViewController.swift; sourceTree = "<group>"; };
 		7FAC72FC21DDE9AE00705F24 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				7F14A49E21C82463000720C6 /* OTMLoginViewController.swift */,
 				7FAC72FA21DD5E0900705F24 /* OTMMapViewController.swift */,
 				7F18057B21E51DA000DD7822 /* OTMTableViewController.swift */,
+				7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */,
 				7F14A4A021C82463000720C6 /* Main.storyboard */,
 				7F14A4A321C82463000720C6 /* Assets.xcassets */,
 				7F14A4A521C82463000720C6 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				7F13D31421D55C4F002D7B6E /* GDCBlackBox.swift in Sources */,
 				7FAC72FB21DD5E0900705F24 /* OTMMapViewController.swift in Sources */,
 				7FAC72FD21DDE9AE00705F24 /* StudentLocation.swift in Sources */,
+				7FAC72FF21DE8A4B00705F24 /* OTMWebViewController.swift in Sources */,
 				7F14A49D21C82463000720C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
