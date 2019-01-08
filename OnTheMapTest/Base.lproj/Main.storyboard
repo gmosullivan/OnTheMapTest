@@ -205,14 +205,33 @@
                     <view key="view" contentMode="scaleToFill" id="47D-9c-w4L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tur-gF-LYT">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bZr-0T-aAS" id="8JT-t3-k3i"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tur-gF-LYT" firstAttribute="top" secondItem="o3g-3y-ogi" secondAttribute="top" id="6Kc-hh-ZWp"/>
+                            <constraint firstAttribute="bottom" secondItem="tur-gF-LYT" secondAttribute="bottom" id="DgA-CD-41m"/>
+                            <constraint firstItem="tur-gF-LYT" firstAttribute="leading" secondItem="o3g-3y-ogi" secondAttribute="leading" id="bpL-MY-Qma"/>
+                            <constraint firstItem="tur-gF-LYT" firstAttribute="trailing" secondItem="o3g-3y-ogi" secondAttribute="trailing" id="cS4-DG-cz1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o3g-3y-ogi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="evG-7o-j2R"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="evG-7o-j2R"/>
+                    <connections>
+                        <outlet property="mapView" destination="tur-gF-LYT" id="Xmh-tU-Yqm"/>
+                    </connections>
+
+
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct4-WQ-K4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2138" y="-200"/>
+            <point key="canvasLocation" x="2137.5" y="-200.70422535211267"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TWD-BM-7TE">
