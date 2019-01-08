@@ -13,6 +13,7 @@
 		7F14A4A221C82463000720C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F14A4A021C82463000720C6 /* Main.storyboard */; };
 		7F14A4A421C82463000720C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F14A4A321C82463000720C6 /* Assets.xcassets */; };
 		7F14A4A721C82463000720C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F14A4A521C82463000720C6 /* LaunchScreen.storyboard */; };
+		7FAC72FF21DE8A4B00705F24 /* OTMWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7F14A4A321C82463000720C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F14A4A621C82463000720C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F14A4A821C82463000720C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7F14A49C21C82463000720C6 /* AppDelegate.swift */,
 				7F13D31321D55C4F002D7B6E /* GDCBlackBox.swift */,
 				7F14A49E21C82463000720C6 /* OTMLoginViewController.swift */,
+				7FAC72FE21DE8A4B00705F24 /* OTMWebViewController.swift */,
 				7F14A4A021C82463000720C6 /* Main.storyboard */,
 				7F14A4A321C82463000720C6 /* Assets.xcassets */,
 				7F14A4A521C82463000720C6 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				7F14A49F21C82463000720C6 /* OTMLoginViewController.swift in Sources */,
 				7F13D31421D55C4F002D7B6E /* GDCBlackBox.swift in Sources */,
+				7FAC72FF21DE8A4B00705F24 /* OTMWebViewController.swift in Sources */,
 				7F14A49D21C82463000720C6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

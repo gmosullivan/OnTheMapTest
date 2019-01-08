@@ -118,7 +118,25 @@
                     <view key="view" contentMode="scaleToFill" id="eXG-5R-Cx4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tug-RT-sQa">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tek-bz-JHB"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="On The Map" id="Jev-eD-ifI">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0cu-cf-55H"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tug-RT-sQa" firstAttribute="trailing" secondItem="VnC-LQ-3Ci" secondAttribute="trailing" id="Qqu-hk-meD"/>
+                            <constraint firstItem="tug-RT-sQa" firstAttribute="leading" secondItem="VnC-LQ-3Ci" secondAttribute="leading" id="hYb-qc-LDx"/>
+                            <constraint firstItem="tug-RT-sQa" firstAttribute="top" secondItem="VnC-LQ-3Ci" secondAttribute="top" id="swX-dI-oAm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VnC-LQ-3Ci"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="K2G-Q4-ybo"/>
@@ -145,21 +163,10 @@
         <!--Web View Controller-->
         <scene sceneID="OMC-TL-qSI">
             <objects>
-                <viewController id="lQp-bI-vpK" customClass="OTMWebViewController" sceneMemberID="viewController">
+                <viewController id="lQp-bI-vpK" customClass="OTMWebViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vjp-k9-WNq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fv-pG-jck">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="KLV-qe-8UF"/>
                     </view>
@@ -167,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LM-Kk-9JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="-567.16641679160421"/>
+            <point key="canvasLocation" x="1186.875" y="-567.25352112676057"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="hXu-8f-eHF">
@@ -176,7 +183,25 @@
                     <view key="view" contentMode="scaleToFill" id="47D-9c-w4L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6n-GO-q4N">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="b2R-e1-m6T"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="On The Map" id="7XJ-zF-S5q">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ahr-aC-8Q5"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r6n-GO-q4N" firstAttribute="trailing" secondItem="o3g-3y-ogi" secondAttribute="trailing" id="Lcq-jE-t6c"/>
+                            <constraint firstItem="r6n-GO-q4N" firstAttribute="leading" secondItem="o3g-3y-ogi" secondAttribute="leading" id="c2M-Hb-KXS"/>
+                            <constraint firstItem="r6n-GO-q4N" firstAttribute="top" secondItem="o3g-3y-ogi" secondAttribute="top" id="edP-3L-aSb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o3g-3y-ogi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="evG-7o-j2R"/>
