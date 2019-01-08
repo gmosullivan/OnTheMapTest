@@ -9,9 +9,12 @@
 import UIKit
 
 class OTMTableViewController: UITableViewController {
+    
+    var locations: [StudentLocation] = [StudentLocation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getStudentLocations()
     }
 
     // MARK: - Table view data source
