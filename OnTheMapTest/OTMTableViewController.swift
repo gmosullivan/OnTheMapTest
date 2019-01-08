@@ -26,7 +26,7 @@ class OTMTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return locations.count
     }
 
     /*
@@ -112,7 +112,7 @@ class OTMTableViewController: UITableViewController {
                 return
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
-            print(locations)
+            self.locations = locations
         }
         task.resume()
     }
