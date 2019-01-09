@@ -152,7 +152,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG"/>
-                        <barButtonItem key="rightBarButtonItem" image="icon_pin" id="rqm-hu-kFE"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_pin" id="rqm-hu-kFE">
+                            <connections>
+                                <segue destination="nUM-Kw-K9q" kind="presentation" id="VdL-8j-n5W"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRx-DY-kzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,7 +220,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon_pin" id="7uE-qi-DdW"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon_pin" id="7uE-qi-DdW">
+                            <connections>
+                                <segue destination="nUM-Kw-K9q" kind="presentation" id="H2k-4v-znz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tur-gF-LYT" id="Xmh-tU-Yqm"/>
@@ -305,4 +313,7 @@
         <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="H2k-4v-znz"/>
+    </inferredMetricsTieBreakers>
 </document>
