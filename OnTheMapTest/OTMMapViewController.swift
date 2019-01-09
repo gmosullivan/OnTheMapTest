@@ -130,6 +130,8 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func logout() {
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             
