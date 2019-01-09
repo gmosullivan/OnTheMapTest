@@ -38,13 +38,9 @@ class OTMTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "OTMWebViewController") as! OTMWebViewController
+        let locationURL = locations[indexPath.row].studentURL
+        viewController.url = URL(string: locationURL)!
         self.navigationController!.pushViewController(viewController, animated: true)
-    }
-
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     //GET Student Locations

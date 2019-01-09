@@ -150,7 +150,9 @@
                             <outlet property="delegate" destination="Ji4-cV-NBt" id="kmd-XY-60Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRx-DY-kzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,7 +213,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o3g-3y-ogi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tur-gF-LYT" id="Xmh-tU-Yqm"/>
                     </connections>

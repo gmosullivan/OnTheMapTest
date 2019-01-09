@@ -12,8 +12,7 @@ import WebKit
 class OTMWebViewController: UIViewController, WKUIDelegate {
 
     var webView: WKWebView!
-    
-    let url = URL(string: "https://auth.udacity.com/sign-up")
+    var url = URL(string: "https://auth.udacity.com/sign-up")
     
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
