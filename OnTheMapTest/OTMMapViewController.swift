@@ -125,7 +125,16 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            
+            let range = Range(5..<data!.count)
+            let result = data?.subdata(in: range)
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            print(parsedResult)
         }
         task.resume()
     }
