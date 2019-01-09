@@ -152,6 +152,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_pin" id="rqm-hu-kFE"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRx-DY-kzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,6 +216,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon_pin" id="7uE-qi-DdW"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tur-gF-LYT" id="Xmh-tU-Yqm"/>
@@ -300,6 +302,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
 </document>
