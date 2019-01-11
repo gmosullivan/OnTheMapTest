@@ -171,27 +171,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-h8-Xt9">
-                                <rect key="frame" x="112" y="219" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-h8-Xt9">
+                                <rect key="frame" x="30.5" y="219" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7s1-3l-3Aj"/>
+                                    <constraint firstAttribute="width" constant="260" id="vFj-wv-qhR"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-aN-C7A">
-                                <rect key="frame" x="112" y="269" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-aN-C7A">
+                                <rect key="frame" x="30.5" y="259" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EDy-xR-3mB"/>
+                                    <constraint firstAttribute="width" constant="260" id="LZu-AH-44U"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="location"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7al-nI-IZo">
-                                <rect key="frame" x="136" y="307" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7al-nI-IZo">
+                                <rect key="frame" x="30.5" y="299" width="260" height="30"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Q1E-dR-7Z3"/>
+                                    <constraint firstAttribute="height" constant="30" id="mzd-ep-iaD"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="8J5-Dk-Y5g"/>
+                            <constraint firstItem="7al-nI-IZo" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="JH4-Jz-BKR"/>
+                            <constraint firstItem="ULu-aN-C7A" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-10" id="UC0-hJ-4er"/>
+                            <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-50" id="XWw-Uj-Of4"/>
+                            <constraint firstItem="7al-nI-IZo" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="30" id="hKQ-Bi-pq8"/>
+                            <constraint firstItem="ULu-aN-C7A" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="lrV-Tp-poA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3uw-9Y-9UT"/>
                     </view>
                 </viewController>
