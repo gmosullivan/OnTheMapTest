@@ -10,12 +10,30 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
 
+    @IBOutlet weak var studentsLocation: UITextField!
+    @IBOutlet weak var studentsURL: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func performForwardGeocoding() {
-        print("Name and Location")
+        if studentsLocation.text != "" && studentsURL.text != "" {
+            print("\(studentsLocation.text!), \(studentsURL.text!)")
+        } else {
+            displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
+        }
+    }
+    
+    //MARK: - Error Functions
+    
+    func displayError(error: String, _ description: String) {
+        print(error)
+        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
 }
