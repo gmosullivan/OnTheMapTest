@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import CoreLocation
 
 class AddLocationViewController: UIViewController {
 
@@ -20,7 +20,9 @@ class AddLocationViewController: UIViewController {
     
     @IBAction func performForwardGeocoding() {
         if studentsLocation.text != "" && studentsURL.text != "" {
-            print("\(studentsLocation.text!), \(studentsURL.text!)")
+            let studentsLocation = self.studentsLocation.text
+            let geocoder = CLGeocoder()
+            
         } else {
             displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
         }
