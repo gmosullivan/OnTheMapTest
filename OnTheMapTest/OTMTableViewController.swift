@@ -42,10 +42,14 @@ class OTMTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "OTMWebViewController") as! OTMWebViewController
         let locationURL = locations[indexPath.row].studentURL
-        viewController.url = URL(string: locationURL)!
-        self.navigationController!.pushViewController(viewController, animated: true)
+        if locationURL.contains("http") {
+            let viewController = self.storyboard!.instantiateViewController(withIdentifier: "OTMWebViewController") as! OTMWebViewController
+            viewController.urlString = locations[indexPath.row].studentURL
+            self.navigationController!.pushViewController(viewController, animated: true)
+        } else {
+            displayError(error: "Invalid URL", "This does not appear to be a valid URL. Please try another student")
+        }
     }
     
     //GET Student Locations
