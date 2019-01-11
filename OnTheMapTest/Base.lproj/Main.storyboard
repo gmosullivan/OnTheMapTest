@@ -114,7 +114,7 @@
         <!--On The Map-->
         <scene sceneID="0M9-w5-rE6">
             <objects>
-                <tableViewController id="Ji4-cV-NBt" sceneMemberID="viewController">
+                <tableViewController id="Ji4-cV-NBt" customClass="OTMTableViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kIE-xf-Hkg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="3036" y="486"/>
         </scene>
-        <!--Student Location View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="4oZ-d3-k08">
             <objects>
-                <viewController id="nUM-Kw-K9q" customClass="OTMStudentLocationViewController" sceneMemberID="viewController">
+                <viewController id="nUM-Kw-K9q" customClass="AVPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D8Z-F2-17D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

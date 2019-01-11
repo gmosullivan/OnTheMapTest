@@ -18,6 +18,10 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.uiDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let request = URLRequest(url: url!)
         webView.load(request)
     }
