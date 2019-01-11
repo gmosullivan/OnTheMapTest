@@ -22,7 +22,18 @@ class AddLocationViewController: UIViewController {
         if studentsLocation.text != "" && studentsURL.text != "" {
             let studentsLocation = self.studentsLocation.text
             let geocoder = CLGeocoder()
-            
+            geocoder.geocodeAddressString(studentsLocation!) { placemarks, error in
+                guard error != nil else {
+                    self.displayError(error: "Unable to find location", "Please check network connection or enter a different location.")
+                    return
+                }
+                guard let placemark = placemarks?.first else {
+                    self.displayError(error: "Unable to find location", "Please check network connection or try another location.")
+                    return
+                }
+                let latitude = placemark.location?.coordinate
+                print(latitude)
+            }
         } else {
             displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
         }
