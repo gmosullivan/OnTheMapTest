@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="3036" y="486"/>
         </scene>
-        <!--Player View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="4oZ-d3-k08">
             <objects>
-                <viewController id="nUM-Kw-K9q" customClass="AVPlayerViewController" sceneMemberID="viewController">
+                <viewController id="nUM-Kw-K9q" customClass="AddLocationViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D8Z-F2-17D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,6 +201,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="performForwardGeocoding" destination="nUM-Kw-K9q" eventType="touchUpInside" id="8Rc-nJ-u7t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

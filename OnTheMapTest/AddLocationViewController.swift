@@ -13,5 +13,9 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func performForwardGeocoding() {
+        print("Name and Location")
+    }
 
 }
