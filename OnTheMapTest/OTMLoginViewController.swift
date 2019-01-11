@@ -74,6 +74,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
+            print(parsedResult)
             guard let accountInfo = parsedResult["account"] as? [String:AnyObject] else {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return

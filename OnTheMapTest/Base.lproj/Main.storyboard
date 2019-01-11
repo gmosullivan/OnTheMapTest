@@ -114,7 +114,7 @@
         <!--On The Map-->
         <scene sceneID="0M9-w5-rE6">
             <objects>
-                <tableViewController id="Ji4-cV-NBt" sceneMemberID="viewController">
+                <tableViewController id="Ji4-cV-NBt" customClass="OTMTableViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kIE-xf-Hkg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,16 +152,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon_pin" id="rqm-hu-kFE">
+                            <connections>
+                                <segue destination="nUM-Kw-K9q" kind="presentation" id="VdL-8j-n5W"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRx-DY-kzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3036" y="486"/>
         </scene>
-        <!--Student Location View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="4oZ-d3-k08">
             <objects>
-                <viewController id="nUM-Kw-K9q" customClass="OTMStudentLocationViewController" sceneMemberID="viewController">
+                <viewController id="nUM-Kw-K9q" customClass="AVPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D8Z-F2-17D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,10 +185,29 @@
                     <view key="view" contentMode="scaleToFill" id="Vjp-k9-WNq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74W-u8-3qb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="74W-u8-3qb" firstAttribute="bottom" secondItem="KLV-qe-8UF" secondAttribute="bottom" id="Bja-dN-cwF"/>
+                            <constraint firstItem="74W-u8-3qb" firstAttribute="trailing" secondItem="KLV-qe-8UF" secondAttribute="trailing" id="l40-fo-wP5"/>
+                            <constraint firstItem="74W-u8-3qb" firstAttribute="top" secondItem="KLV-qe-8UF" secondAttribute="top" id="mS9-7w-dd9"/>
+                            <constraint firstItem="74W-u8-3qb" firstAttribute="leading" secondItem="KLV-qe-8UF" secondAttribute="leading" id="q5F-gD-74V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KLV-qe-8UF"/>
                     </view>
                     <navigationItem key="navigationItem" id="1hq-Vg-7i0"/>
+                    <connections>
+                        <outlet property="webView" destination="74W-u8-3qb" id="Sdi-Lw-3un"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LM-Kk-9JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,6 +239,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon_pin" id="7uE-qi-DdW">
+                            <connections>
+                                <segue destination="nUM-Kw-K9q" kind="presentation" id="H2k-4v-znz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="tur-gF-LYT" id="Xmh-tU-Yqm"/>
@@ -300,6 +329,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="H2k-4v-znz"/>
+    </inferredMetricsTieBreakers>
 </document>

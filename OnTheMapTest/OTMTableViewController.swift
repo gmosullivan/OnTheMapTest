@@ -16,6 +16,11 @@ class OTMTableViewController: UITableViewController {
         super.viewDidLoad()
         getStudentLocations()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -32,7 +37,7 @@ class OTMTableViewController: UITableViewController {
         let location = locations[indexPath.row]
         // Configure the cell...
         cell.textLabel?.text = "\(location.studentFirstName) \(location.studentLastName)"
-        cell.detailTextLabel?.text = "\(location.studentMapString)"
+        cell.detailTextLabel?.text = "\(location.studentURL)"
         return cell
     }
     
@@ -72,6 +77,9 @@ class OTMTableViewController: UITableViewController {
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
             self.locations = locations
+            performUIUpdatesOnMain {
+                self.tableView.reloadData()
+            }
         }
         task.resume()
     }
