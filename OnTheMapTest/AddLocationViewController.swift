@@ -18,6 +18,9 @@ class AddLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.isHidden = true
+        studentsLocation.isHidden = false
+        studentsURL.isHidden = false
     }
     
     @IBAction func performForwardGeocoding() {
@@ -33,9 +36,11 @@ class AddLocationViewController: UIViewController {
                     self.displayError(error: "Unable to find location", "Please check network connection or try another location.")
                     return
                 }
-                let latitude = placemark.location?.coordinate
-//                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
-                print(latitude)
+                let location = placemark.location?.coordinate
+                self.mapView.isHidden = false
+                self.studentsLocation.isHidden = false
+                self.studentsURL.isHidden = false
+                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
             }
         } else {
             displayError(error: "No Location or URL Added", "Please enter your location and a URL.")

@@ -198,7 +198,7 @@
                                     <constraint firstAttribute="width" constant="260" id="Q1E-dR-7Z3"/>
                                     <constraint firstAttribute="height" constant="30" id="mzd-ep-iaD"/>
                                 </constraints>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Find Location">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -206,19 +206,32 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TJE-gL-BoR">
-                                <rect key="frame" x="30" y="154" width="260" height="260"/>
+                                <rect key="frame" x="30" y="104" width="260" height="360"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="E3j-J8-4SI" userLabel="height = 460"/>
+                                    <constraint firstAttribute="height" constant="360" id="E3j-J8-4SI" userLabel="height = 360"/>
                                     <constraint firstAttribute="width" constant="260" id="K1N-lh-kui"/>
                                 </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2J-zm-2Ds">
+                                <rect key="frame" x="30" y="474" width="260" height="30"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="0ln-MK-cOR"/>
+                                    <constraint firstAttribute="height" constant="30" id="hza-c4-PtE"/>
+                                </constraints>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="8J5-Dk-Y5g"/>
                             <constraint firstItem="7al-nI-IZo" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="JH4-Jz-BKR"/>
+                            <constraint firstItem="Z2J-zm-2Ds" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="KWB-Bf-CKQ"/>
                             <constraint firstItem="ULu-aN-C7A" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-10" id="UC0-hJ-4er"/>
                             <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-50" id="XWw-Uj-Of4"/>
+                            <constraint firstItem="Z2J-zm-2Ds" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="205" id="cg2-fE-3aL"/>
                             <constraint firstItem="7al-nI-IZo" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="30" id="hKQ-Bi-pq8"/>
                             <constraint firstItem="TJE-gL-BoR" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="kK6-wc-UFo"/>
                             <constraint firstItem="ULu-aN-C7A" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="lrV-Tp-poA"/>
