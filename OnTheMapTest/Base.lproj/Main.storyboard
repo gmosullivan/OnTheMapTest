@@ -223,11 +223,11 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cci-KK-upK">
-                                <rect key="frame" x="135" y="259" width="50" height="50"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cci-KK-upK">
+                                <rect key="frame" x="115" y="239" width="90" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="1IL-Ee-Eu7"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZTf-I4-fec"/>
+                                    <constraint firstAttribute="width" constant="90" id="1IL-Ee-Eu7"/>
+                                    <constraint firstAttribute="height" constant="90" id="ZTf-I4-fec"/>
                                 </constraints>
                             </activityIndicatorView>
                         </subviews>
