@@ -16,6 +16,7 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var studentsURL: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,13 @@ class AddLocationViewController: UIViewController {
         studentsLocation.isHidden = false
         studentsURL.isHidden = false
         finishButton.isHidden = true
+        activityIndicator.isHidden = true
     }
     
     @IBAction func performForwardGeocoding() {
         if studentsLocation.text != "" && studentsURL.text != "" {
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
             let studentsLocation = self.studentsLocation.text
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(studentsLocation!) { placemarks, error in
@@ -44,6 +48,8 @@ class AddLocationViewController: UIViewController {
                 self.studentsURL.isHidden = true
                 self.finishButton.isHidden = false
                 self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
             }
         } else {
             displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
