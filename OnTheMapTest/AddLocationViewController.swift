@@ -23,7 +23,7 @@ class AddLocationViewController: UIViewController {
             let studentsLocation = self.studentsLocation.text
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(studentsLocation!) { placemarks, error in
-                guard error != nil else {
+                guard error == nil else {
                     self.displayError(error: "Unable to find location", "Please check network connection or enter a different location.")
                     return
                 }
@@ -32,6 +32,7 @@ class AddLocationViewController: UIViewController {
                     return
                 }
                 let latitude = placemark.location?.coordinate
+//                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
                 print(latitude)
             }
         } else {
