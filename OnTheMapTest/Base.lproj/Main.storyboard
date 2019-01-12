@@ -223,6 +223,13 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-n3-NxQ">
+                                <rect key="frame" x="115" y="239" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="4kx-Th-fHy"/>
+                                    <constraint firstAttribute="height" constant="90" id="gfi-Kv-wQ0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,11 +242,14 @@
                             <constraint firstItem="7al-nI-IZo" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="30" id="hKQ-Bi-pq8"/>
                             <constraint firstItem="TJE-gL-BoR" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="kK6-wc-UFo"/>
                             <constraint firstItem="ULu-aN-C7A" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="lrV-Tp-poA"/>
+                            <constraint firstItem="hv8-n3-NxQ" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" id="nNg-Wh-3GU"/>
                             <constraint firstItem="TJE-gL-BoR" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" id="u7C-iX-28p"/>
+                            <constraint firstItem="hv8-n3-NxQ" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="vFr-zu-cKP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3uw-9Y-9UT"/>
                     </view>
                     <connections>
+                        <outlet property="finishButton" destination="Z2J-zm-2Ds" id="L6Y-dB-XTB"/>
                         <outlet property="mapView" destination="TJE-gL-BoR" id="xjM-Xn-ZQP"/>
                         <outlet property="studentsLocation" destination="8CE-h8-Xt9" id="53n-MF-jqN"/>
                         <outlet property="studentsURL" destination="ULu-aN-C7A" id="ETG-ic-f7J"/>
@@ -401,6 +411,7 @@
     </scenes>
     <resources>
         <image name="icon_pin" width="24" height="24"/>
+        <image name="loading" width="46" height="46"/>
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -15,12 +15,14 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var studentsLocation: UITextField!
     @IBOutlet weak var studentsURL: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var finishButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.isHidden = true
         studentsLocation.isHidden = false
         studentsURL.isHidden = false
+        finishButton.isHidden = true
     }
     
     @IBAction func performForwardGeocoding() {
@@ -38,8 +40,9 @@ class AddLocationViewController: UIViewController {
                 }
                 let location = placemark.location?.coordinate
                 self.mapView.isHidden = false
-                self.studentsLocation.isHidden = false
-                self.studentsURL.isHidden = false
+                self.studentsLocation.isHidden = true
+                self.studentsURL.isHidden = true
+                self.finishButton.isHidden = false
                 self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
             }
         } else {
