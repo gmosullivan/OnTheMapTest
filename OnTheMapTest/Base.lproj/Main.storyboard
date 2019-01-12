@@ -163,16 +163,98 @@
             </objects>
             <point key="canvasLocation" x="3036" y="486"/>
         </scene>
-        <!--Player View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="4oZ-d3-k08">
             <objects>
-                <viewController id="nUM-Kw-K9q" customClass="AVPlayerViewController" sceneMemberID="viewController">
+                <viewController id="nUM-Kw-K9q" customClass="AddLocationViewController" customModule="OnTheMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D8Z-F2-17D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-h8-Xt9">
+                                <rect key="frame" x="30.5" y="219" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7s1-3l-3Aj"/>
+                                    <constraint firstAttribute="width" constant="260" id="vFj-wv-qhR"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-aN-C7A">
+                                <rect key="frame" x="30.5" y="259" width="260" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EDy-xR-3mB"/>
+                                    <constraint firstAttribute="width" constant="260" id="LZu-AH-44U"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="url"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7al-nI-IZo">
+                                <rect key="frame" x="30.5" y="299" width="260" height="30"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Q1E-dR-7Z3"/>
+                                    <constraint firstAttribute="height" constant="30" id="mzd-ep-iaD"/>
+                                </constraints>
+                                <state key="normal" title="Find Location">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="performForwardGeocoding" destination="nUM-Kw-K9q" eventType="touchUpInside" id="8Rc-nJ-u7t"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TJE-gL-BoR">
+                                <rect key="frame" x="30" y="104" width="260" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="E3j-J8-4SI" userLabel="height = 360"/>
+                                    <constraint firstAttribute="width" constant="260" id="K1N-lh-kui"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2J-zm-2Ds">
+                                <rect key="frame" x="30" y="474" width="260" height="30"/>
+                                <color key="backgroundColor" red="0.015686274510000001" green="0.66274509800000003" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="0ln-MK-cOR"/>
+                                    <constraint firstAttribute="height" constant="30" id="hza-c4-PtE"/>
+                                </constraints>
+                                <state key="normal" title="Finish">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cci-KK-upK">
+                                <rect key="frame" x="115" y="239" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="1IL-Ee-Eu7"/>
+                                    <constraint firstAttribute="height" constant="90" id="ZTf-I4-fec"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cci-KK-upK" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" id="0Fe-DT-Tnh"/>
+                            <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="8J5-Dk-Y5g"/>
+                            <constraint firstItem="7al-nI-IZo" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="JH4-Jz-BKR"/>
+                            <constraint firstItem="Z2J-zm-2Ds" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="KWB-Bf-CKQ"/>
+                            <constraint firstItem="ULu-aN-C7A" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-10" id="UC0-hJ-4er"/>
+                            <constraint firstItem="8CE-h8-Xt9" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="-50" id="XWw-Uj-Of4"/>
+                            <constraint firstItem="Z2J-zm-2Ds" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="205" id="cg2-fE-3aL"/>
+                            <constraint firstItem="7al-nI-IZo" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" constant="30" id="hKQ-Bi-pq8"/>
+                            <constraint firstItem="TJE-gL-BoR" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="kK6-wc-UFo"/>
+                            <constraint firstItem="ULu-aN-C7A" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="lrV-Tp-poA"/>
+                            <constraint firstItem="cci-KK-upK" firstAttribute="centerX" secondItem="D8Z-F2-17D" secondAttribute="centerX" id="mph-FJ-tT4"/>
+                            <constraint firstItem="TJE-gL-BoR" firstAttribute="centerY" secondItem="D8Z-F2-17D" secondAttribute="centerY" id="u7C-iX-28p"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3uw-9Y-9UT"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="cci-KK-upK" id="DKH-Jz-H0X"/>
+                        <outlet property="finishButton" destination="Z2J-zm-2Ds" id="L6Y-dB-XTB"/>
+                        <outlet property="mapView" destination="TJE-gL-BoR" id="xjM-Xn-ZQP"/>
+                        <outlet property="studentsLocation" destination="8CE-h8-Xt9" id="53n-MF-jqN"/>
+                        <outlet property="studentsURL" destination="ULu-aN-C7A" id="ETG-ic-f7J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xw6-Oh-XgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
