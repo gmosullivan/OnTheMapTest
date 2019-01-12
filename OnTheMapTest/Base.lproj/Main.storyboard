@@ -227,6 +227,7 @@
                         <viewLayoutGuide key="safeArea" id="3uw-9Y-9UT"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="TJE-gL-BoR" id="xjM-Xn-ZQP"/>
                         <outlet property="studentsLocation" destination="8CE-h8-Xt9" id="53n-MF-jqN"/>
                         <outlet property="studentsURL" destination="ULu-aN-C7A" id="ETG-ic-f7J"/>
                     </connections>

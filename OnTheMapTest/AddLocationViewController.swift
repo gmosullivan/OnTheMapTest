@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class AddLocationViewController: UIViewController {
 
     @IBOutlet weak var studentsLocation: UITextField!
     @IBOutlet weak var studentsURL: UITextField!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
