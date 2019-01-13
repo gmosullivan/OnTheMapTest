@@ -27,6 +27,10 @@ class AddLocationViewController: UIViewController {
         activityIndicator.isHidden = true
     }
     
+    @IBAction func cancel() {
+        dismiss(animated: true)
+    }
+    
     @IBAction func performForwardGeocoding() {
         if studentsLocation.text != "" && studentsURL.text != "" {
             activityIndicator.isHidden = false
