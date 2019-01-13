@@ -91,7 +91,16 @@ class AddLocationViewController: UIViewController {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            print(String(data: data!, encoding: .utf8)!)
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            if parsedResult.count > 0 {
+                self.dismiss(animated: true)
+            }
         }
         task.resume()
     }

@@ -27,6 +27,7 @@ class OTMWebViewController: UIViewController, WKUIDelegate {
     
     func loadWebView (_ url: String) {
         let request = URLRequest(url: URL(string: url)!)
+        self.view.addSubview(webView)
         webView.load(request)
     }
 
