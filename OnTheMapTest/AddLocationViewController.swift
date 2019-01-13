@@ -100,6 +100,9 @@ class AddLocationViewController: UIViewController {
             }
             if parsedResult.count > 0 {
                 self.dismiss(animated: true)
+            } else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
             }
         }
         task.resume()
