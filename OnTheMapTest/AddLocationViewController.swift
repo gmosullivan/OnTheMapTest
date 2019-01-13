@@ -27,6 +27,10 @@ class AddLocationViewController: UIViewController {
         activityIndicator.isHidden = true
     }
     
+    @IBAction func cancel() {
+        dismiss(animated: true)
+    }
+    
     @IBAction func performForwardGeocoding() {
         if studentsLocation.text != "" && studentsURL.text != "" {
             activityIndicator.isHidden = false
@@ -54,6 +58,54 @@ class AddLocationViewController: UIViewController {
         } else {
             displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
         }
+    }
+    
+    @IBAction func postNewLocation() {
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "POST"
+        request.httpMethod = "POST"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String:Any] = [
+            "uniqueKey": "1234",
+            "firstName": "Gareth",
+            "lastName": "OSullivan",
+            "mapString": studentsLocation.text!,
+            "mediaURL": studentsURL.text!,
+            "latitude": 0.00,
+            "longitude": 0.00
+        ]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch {
+            displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            if parsedResult.count > 0 {
+                self.dismiss(animated: true)
+            } else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+        }
+        task.resume()
     }
     
     //MARK: - Error Functions
