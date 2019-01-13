@@ -151,7 +151,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="8S4-jM-X3F">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ymC-iE-msG">
+                            <connections>
+                                <action selector="logout" destination="Ji4-cV-NBt" id="f45-RZ-nmh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="icon_pin" id="rqm-hu-kFE">
                             <connections>
                                 <segue destination="4DF-Xd-PGC" kind="presentation" id="VdL-8j-n5W"/>
