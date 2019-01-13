@@ -81,6 +81,11 @@ class AddLocationViewController: UIViewController {
         } catch {
             displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
         }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            
+        }
+        task.resume()
     }
     
     //MARK: - Error Functions
