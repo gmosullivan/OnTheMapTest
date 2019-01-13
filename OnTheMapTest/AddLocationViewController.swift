@@ -60,6 +60,10 @@ class AddLocationViewController: UIViewController {
         }
     }
     
+    @IBAction func postNewLocation() {
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+    }
+    
     //MARK: - Error Functions
     
     func displayError(error: String, _ description: String) {

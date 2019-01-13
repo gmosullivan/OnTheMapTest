@@ -226,6 +226,9 @@
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="postNewLocation" destination="nUM-Kw-K9q" eventType="touchUpInside" id="ZHy-zs-5Bg"/>
+                                </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cci-KK-upK">
                                 <rect key="frame" x="115" y="239" width="90" height="90"/>
