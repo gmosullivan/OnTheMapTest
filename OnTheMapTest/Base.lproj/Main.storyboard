@@ -320,7 +320,11 @@
                         <viewLayoutGuide key="safeArea" id="o3g-3y-ogi"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="nAq-5T-LgI">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ayv-lB-OiV">
+                            <connections>
+                                <action selector="logout" destination="bZr-0T-aAS" id="n6u-xz-h84"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="icon_pin" id="7uE-qi-DdW">
                             <connections>
                                 <segue destination="nUM-Kw-K9q" kind="presentation" id="H2k-4v-znz"/>

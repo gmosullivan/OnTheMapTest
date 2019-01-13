@@ -118,11 +118,11 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
                 return
             }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
                 return
             }
             let range = Range(5..<data!.count)
@@ -131,10 +131,16 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String:AnyObject]
             } catch {
-                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
                 return
             }
-            print(parsedResult)
+            guard let session = parsedResult["session"] as? [[String:Any]] else {
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
+                return
+            }
+            if session.count > 0 {
+                self.dismiss(animated: true)
+            }
         }
         task.resume()
     }
