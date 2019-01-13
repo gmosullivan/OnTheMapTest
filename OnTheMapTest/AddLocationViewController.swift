@@ -83,7 +83,15 @@ class AddLocationViewController: UIViewController {
         }
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
-            
+            guard error == nil else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
+                return
+            }
+            print(String(data: data!, encoding: .utf8)!)
         }
         task.resume()
     }
