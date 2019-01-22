@@ -9,17 +9,10 @@
 import UIKit
 
 class OTMTableViewController: UITableViewController {
-    
-    var locations: [StudentLocation] = [StudentLocation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getStudentLocations()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
+        //displayStudentLocations()
     }
 
     // MARK: - Table view data source
@@ -29,12 +22,12 @@ class OTMTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return StudentLocation.locations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locations", for: indexPath)
-        let location = locations[indexPath.row]
+        let location = StudentLocation.locations[indexPath.row]
         // Configure the cell...
         cell.textLabel?.text = "\(location.studentFirstName) \(location.studentLastName)"
         cell.detailTextLabel?.text = "\(location.studentURL)"
@@ -42,19 +35,20 @@ class OTMTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let locationURL = locations[indexPath.row].studentURL
+        let locationURL = StudentLocation.locations[indexPath.row].studentURL
         if locationURL.contains("http") {
             let viewController = self.storyboard!.instantiateViewController(withIdentifier: "OTMWebViewController") as! OTMWebViewController
-            viewController.urlString = locations[indexPath.row].studentURL
+            viewController.urlString = StudentLocation.locations[indexPath.row].studentURL
             self.navigationController!.pushViewController(viewController, animated: true)
         } else {
-            displayError(error: "Invalid URL", "This does not appear to be a valid URL. Please try another student")
+            UdacityClient.sharedInstance().displayError(error: "Invalid URL", "This does not appear to be a valid URL. Please try another student", self)
         }
     }
     
     //GET Student Locations
     
-    func getStudentLocations() {
+    func displayStudentLocations() {
+        /*
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=-updatedAt")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -81,16 +75,21 @@ class OTMTableViewController: UITableViewController {
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
             self.locations = locations
+         
             performUIUpdatesOnMain {
                 self.tableView.reloadData()
             }
-        }
+    
+    }
         task.resume()
+ */
     }
     
     //MARK: - Actions
     
     @IBAction func logout() {
+        UdacityClient.sharedInstance().taskForLogout(self)
+        /*
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
@@ -131,17 +130,7 @@ class OTMTableViewController: UITableViewController {
             }
         }
         task.resume()
-    }
-    
-    //MARK: - Error Functions
-    
-    func displayError(error: String, _ description: String) {
-        print(error)
-        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true, completion: nil)
-        }
+        */
     }
 
 }

@@ -24,12 +24,14 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getStudentLocations()
+        displayStudentLocations()
+        self.mapView.reloadInputViews()
     }
     
     //GET Student Locations
     
-    func getStudentLocations() {
+    func displayStudentLocations() {
+        /*
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100&order=-updatedAt")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -55,7 +57,8 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 return
             }
             let locations = StudentLocation.studentLoactionsFrom(results: results)
-            for location in locations {
+            */
+            for location in StudentLocation.locations {
                 let lat = CLLocationDegrees(location.studentLatitude)
                 let lon = CLLocationDegrees(location.studentLongitude)
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
@@ -69,19 +72,10 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 self.annotations.append(annotation)
             }
             self.mapView.addAnnotations(self.annotations)
+        /*
         }
         task.resume()
-    }
-    
-    //MARK: - Error Functions
-    
-    func displayError(error: String, _ description: String) {
-        print(error)
-        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true, completion: nil)
-        }
+        */
     }
     
     // MARK: - MKMapViewDelegate Methods
@@ -101,14 +95,20 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(URL(string: toOpen)!)
+            let locationURL = view.annotation?.subtitle!
+            if (locationURL?.contains("http"))! {
+                let viewController = self.storyboard!.instantiateViewController(withIdentifier: "OTMWebViewController") as! OTMWebViewController
+                viewController.urlString = locationURL!
+                self.navigationController!.pushViewController(viewController, animated: true)
+            } else {
+                UdacityClient.sharedInstance().displayError(error: "Invalid URL", "This does not appear to be a valid URL. Please try another student", self)
             }
         }
     }
     
     @IBAction func logout() {
+        UdacityClient.sharedInstance().taskForLogout(self)
+        /*
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "DELETE"
         var xsrfCookie: HTTPCookie? = nil
@@ -122,7 +122,7 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                self.displayError(error: "Something went wrong!1", "Unable to logout. Please try again later.")
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
                 return
             }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
@@ -139,7 +139,7 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
                 return
             }
             guard let session = parsedResult["session"] as? [String:Any] else {
-                self.displayError(error: "Something went wrong!4", "Unable to logout. Please try again later.")
+                self.displayError(error: "Something went wrong!", "Unable to logout. Please try again later.")
                 return
             }
             if session.count > 0 {
@@ -149,6 +149,7 @@ class OTMMapViewController: UIViewController, MKMapViewDelegate {
             }
         }
         task.resume()
+        */
     }
     
 }

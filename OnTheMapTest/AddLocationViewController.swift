@@ -10,7 +10,9 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, UITextFieldDelegate {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var studentsLocation: UITextField!
     @IBOutlet weak var studentsURL: UITextField!
@@ -20,6 +22,8 @@ class AddLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        studentsLocation.delegate = self
+        studentsURL.delegate = self
         mapView.isHidden = true
         studentsLocation.isHidden = false
         studentsURL.isHidden = false
@@ -33,20 +37,24 @@ class AddLocationViewController: UIViewController {
     
     @IBAction func performForwardGeocoding() {
         if studentsLocation.text != "" && studentsURL.text != "" {
+            UdacityClient.HTTPBodyValues.mapString = studentsLocation.text!
+            UdacityClient.HTTPBodyValues.mediaURL = studentsURL.text!
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
-            let studentsLocation = self.studentsLocation.text
+            let usersLocation = self.studentsLocation.text
             let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(studentsLocation!) { placemarks, error in
+            geocoder.geocodeAddressString(usersLocation!) { placemarks, error in
                 guard error == nil else {
-                    self.displayError(error: "Unable to find location", "Please check network connection or enter a different location.")
+                    UdacityClient.sharedInstance().displayError(error: "Unable to find location", "Please check network connection or enter a different location.", self)
                     return
                 }
                 guard let placemark = placemarks?.first else {
-                    self.displayError(error: "Unable to find location", "Please check network connection or try another location.")
+                    UdacityClient.sharedInstance().displayError(error: "Unable to find location", "Please check network connection or enter a different location.", self)
                     return
                 }
                 let location = placemark.location?.coordinate
+                UdacityClient.HTTPBodyValues.latitude = location!.latitude
+                UdacityClient.HTTPBodyValues.longitude = location!.longitude
                 self.mapView.isHidden = false
                 self.studentsLocation.isHidden = true
                 self.studentsURL.isHidden = true
@@ -56,13 +64,14 @@ class AddLocationViewController: UIViewController {
                 self.activityIndicator.isHidden = true
             }
         } else {
-            displayError(error: "No Location or URL Added", "Please enter your location and a URL.")
+            UdacityClient.sharedInstance().displayError(error: "No Location or URL Added", "Please enter your location and a URL.", self)
         }
     }
     
     @IBAction func postNewLocation() {
+        UdacityClient.sharedInstance().postNewLocation(self)
+        /*
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
-        request.httpMethod = "POST"
         request.httpMethod = "POST"
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
@@ -106,17 +115,7 @@ class AddLocationViewController: UIViewController {
             }
         }
         task.resume()
-    }
-    
-    //MARK: - Error Functions
-    
-    func displayError(error: String, _ description: String) {
-        print(error)
-        let alert = UIAlertController(title: error, message: description, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true, completion: nil)
-        }
+        */
     }
 
 }

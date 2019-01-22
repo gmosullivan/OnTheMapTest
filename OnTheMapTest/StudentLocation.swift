@@ -17,6 +17,8 @@ struct StudentLocation {
     let studentMapString: String
     let studentURL: String
     
+    static var locations = [StudentLocation]()
+    
     //MARK: - Initializers
     
     // construct a StudentLocation from a dictionary

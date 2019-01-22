@@ -18,20 +18,16 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
 
     @IBAction func Login() {
         if emailTextField.text == "" || passwordTextField.text == "" {
-            displayError(error: "Missing email and/or password", "Please enter your email address and password.")
+            UdacityClient.sharedInstance().displayError(error: "Missing email and/or password", "Please enter your email address and password.", self)
             return
         }
+        UdacityClient.HTTPBodyValues.username = emailTextField.text!
+        UdacityClient.HTTPBodyValues.password = passwordTextField.text!
+        UdacityClient.sharedInstance().taskForLogin(self)
+        /*
         var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -78,21 +74,18 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-            print(accountInfo)
             guard let isRegistered = accountInfo["registered"] as? Bool else {
                 self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
                 return
             }
-                if isRegistered {
-                    performUIUpdatesOnMain {
-                        self.performSegue(withIdentifier: "Login", sender: self)
-                    }
-                } else {
-                    self.displayError(error: "Something went wrong!", "Please check your network connection or try again later.")
-                    return
+            if isRegistered {
+                performUIUpdatesOnMain {
+                    self.performSegue(withIdentifier: "Login", sender: self)
+                }
             }
         }
         task.resume()
+        */
     }
     
     //MARK: - Text Field Delegate Functions
